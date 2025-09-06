@@ -33,7 +33,8 @@ ARG GID=1000
 RUN groupadd -g $GID user || true \
     && useradd -m -u $UID -g $GID -s /bin/bash user \
     && echo "user:user" | chpasswd \
-    && adduser user sudo
+    && adduser user sudo \
+    && echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER user
 WORKDIR /home/user
