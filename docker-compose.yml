@@ -1,0 +1,19 @@
+
+services:
+  kali-x86:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    user: "${UID}:${GID}"
+    platform: linux/amd64
+    tty: true
+    stdin_open: true
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
+    volumes:
+      - ./work:/home/user/work
+    container_name: kali-x86
