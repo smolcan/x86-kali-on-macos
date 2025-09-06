@@ -22,6 +22,7 @@ RUN apt-get update && \
         file  \
         strace \
         ltrace \
+        tmux \
         sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
